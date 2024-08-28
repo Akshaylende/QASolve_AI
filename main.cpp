@@ -5,8 +5,23 @@ using namespace std;
 // Coordinates & locked_Roads 
 int n, bl, x, y;
 vector<vector<int>> Coordinates, Blocked_Roads;
+vector<vector<int>> Distance;
 
+//  CalculateDistance Method will Initializes the Distance Grid to store the distances between any two customers 
+// & also keeps track for Blocked Roads
+void CalculateDistance(){
+    Distance.resize(n+1, vector<int>(n+1));
+    for(int x = 0; x <= n; x++){
+        for(int y = x; y <= n; y++){
+            Distance[x][y] = Distance[y][x] = abs(Coordinates[x][0] - Coordinates[y][0]) + abs(Coordinates[x][1] - Coordinates[y][1]);
+        }
+    }
 
+    // Marking the Blocked_Roads with Distance as Infinity/INT_MAX as per Assumption 
+    for(auto cords : Blocked_Roads){
+        Distance[cords[0]][cords[1]] = Distance[cords[1]][cords[0]] = INT_MAX;
+    }
+}
 
 
 //  Main method to start the execution of program
