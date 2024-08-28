@@ -39,7 +39,7 @@ void ShortestPath(int customer, int efficiency, unordered_set <int> visited){
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq;
     
     for(int i=0; i<=n; i++){
-        // Considering the customers who aren't visited yet 
+        // Considering the customers who aren't visited yet & distance of which is not Infinity or Integer Max
         if(visited.find(i) == visited.end() && Distance[customer][i] != INT_MAX){
             pq.push({Distance[customer][i], i});
         }
@@ -83,11 +83,15 @@ int main()
         cin >> x >> y;
         blocked_Roads.push_back({x, y});
     }
-
+ 
+    //  Calling CalculateDistance method to initialize the distance grid between customers
     CalculateDistance();
     unordered_set <int> visited ;
+
+    //  Calling our shortestPath method to run our Algorithm 
     ShortestPath(0, 0, visited);
 
+    //  printing the minimum distance that covers all customers once.
     cout<< effRouteDist << endl;
     return 0;
 }
