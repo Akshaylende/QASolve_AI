@@ -74,3 +74,6 @@ CalculateDistance() ->  will define our distance matrix
 ShortestPath() -> will be called on shop to start calculating efficient route 
 
  
+Follow up Bonus Challenge 
+1. The Big Slice - It will run for above 20 customers.
+2. Pizza Emergencies - will be solved using check for Dynamically for blocked road inside shortestPath while pushing any node with in the priority queue. 
