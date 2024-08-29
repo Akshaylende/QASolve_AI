@@ -54,6 +54,8 @@ Dry Run :-
 Distance Matrix as
 /// Consider A B C D as 1, 2, 3, 4 customers respectively & 0 as the shop location 
     -1 represents a block road between the customers
+    
+Note : -  Distance is calculated using Manhatten Distance formula
 
      0  1  2  3  4
   0 [0, 5, 5, 7, 4]
